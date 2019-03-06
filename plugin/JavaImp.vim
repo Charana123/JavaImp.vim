@@ -834,8 +834,9 @@ endfunction
 
 " View the doc
 function! <SID>JavaImpViewDoc(f)
-    let cmd = '!' . g:JavaImpDocViewer . ' "' . a:f . '"'
-    execute cmd
+    let cmd = g:JavaImpDocViewer . ' "' . a:f . '"'
+    execute(":vnew")
+    execute(":terminal " . cmd)
 endfunction
 
 " -------------------------------------------------------------------  
