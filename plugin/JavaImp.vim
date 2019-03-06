@@ -835,9 +835,7 @@ endfunction
 " View the doc
 function! <SID>JavaImpViewDoc(f)
     let cmd = '!' . g:JavaImpDocViewer . ' "' . a:f . '"'
-    silent execute cmd
-    " We need to redraw after we quit, for things may not refresh correctly
-    redraw!
+    execute cmd
 endfunction
 
 " -------------------------------------------------------------------  
@@ -906,7 +904,7 @@ function! <SID>JavaImpDoc()
     let className = expand("<cword>")
     let fullClassName = <SID>JavaImpFindFullName(className)
     if (fullClassName == "")
-        return 
+        return
     endif
 
     let currPaths = g:JavaImpDocPaths
